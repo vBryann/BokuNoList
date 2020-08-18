@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		691F01BC24E57F5400C4517E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01BB24E57F5400C4517E /* AppDelegate.swift */; };
 		691F01BE24E57F5400C4517E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01BD24E57F5400C4517E /* SceneDelegate.swift */; };
-		691F01C024E57F5400C4517E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01BF24E57F5400C4517E /* ViewController.swift */; };
 		691F01C524E57F5800C4517E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 691F01C424E57F5800C4517E /* Assets.xcassets */; };
 		691F01C824E57F5800C4517E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 691F01C624E57F5800C4517E /* LaunchScreen.storyboard */; };
 		691F01D324E57F5800C4517E /* BokuNoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01D224E57F5800C4517E /* BokuNoListTests.swift */; };
@@ -18,6 +17,9 @@
 		691F01F224E6C4CC00C4517E /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01F124E6C4CC00C4517E /* ExplorerViewController.swift */; };
 		691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01F324E6C51800C4517E /* TabBarViewController.swift */; };
 		691F01F624E6CB1F00C4517E /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01F524E6CB1F00C4517E /* MyListViewController.swift */; };
+		691F01FB24E6DAD600C4517E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01FA24E6DAD600C4517E /* Colors.swift */; };
+		69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */; };
+		69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,6 @@
 		691F01B824E57F5400C4517E /* BokuNoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BokuNoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		691F01BB24E57F5400C4517E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		691F01BD24E57F5400C4517E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		691F01BF24E57F5400C4517E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		691F01C424E57F5800C4517E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		691F01C724E57F5800C4517E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		691F01C924E57F5800C4517E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		691F01F124E6C4CC00C4517E /* ExplorerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
 		691F01F324E6C51800C4517E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		691F01F524E6CB1F00C4517E /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		691F01FA24E6DAD600C4517E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
+		69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		691F01BA24E57F5400C4517E /* BokuNoList */ = {
 			isa = PBXGroup;
 			children = (
+				691F01F924E6DAB700C4517E /* Resources */,
 				691F01ED24E57FDE00C4517E /* View */,
 				691F01EC24E57FD500C4517E /* Controller */,
 				691F01EB24E57FCD00C4517E /* Model */,
@@ -146,10 +151,11 @@
 		691F01EC24E57FD500C4517E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				691F01BF24E57F5400C4517E /* ViewController.swift */,
 				691F01F124E6C4CC00C4517E /* ExplorerViewController.swift */,
 				691F01F524E6CB1F00C4517E /* MyListViewController.swift */,
 				691F01F324E6C51800C4517E /* TabBarViewController.swift */,
+				69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */,
+				69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +165,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		691F01F924E6DAB700C4517E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				691F01FA24E6DAD600C4517E /* Colors.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,8 +328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				691F01F624E6CB1F00C4517E /* MyListViewController.swift in Sources */,
-				691F01C024E57F5400C4517E /* ViewController.swift in Sources */,
+				69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */,
+				69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */,
 				691F01BC24E57F5400C4517E /* AppDelegate.swift in Sources */,
+				691F01FB24E6DAD600C4517E /* Colors.swift in Sources */,
 				691F01BE24E57F5400C4517E /* SceneDelegate.swift in Sources */,
 				691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */,
 				691F01F224E6C4CC00C4517E /* ExplorerViewController.swift in Sources */,

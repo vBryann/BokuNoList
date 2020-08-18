@@ -13,10 +13,18 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let firstVC = ExplorerViewController()
-        let secondVC = MyListViewController()
+        let firstVC = UINavigationController(rootViewController: ExplorerViewController())
+        firstVC.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(named: "Explore"), tag: 0)
+        
+        let secondVC = UINavigationController(rootViewController: MyListViewController())
+        secondVC.tabBarItem = UITabBarItem(title: "My List", image: UIImage(named: "list"), tag: 1)
         
         let tabList = [firstVC,secondVC]
         viewControllers = tabList
+        setupColor()
+    }
+    func setupColor() {
+        tabBar.tintColor = .actionColor
+        tabBar.backgroundColor = .white
     }
 }
