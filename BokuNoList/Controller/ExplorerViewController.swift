@@ -29,6 +29,7 @@ class ExplorerViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         collection.register(CustomCellViewController.self, forCellWithReuseIdentifier: "cell")
         collection.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "trendingCell")
+//        collection.register(MyHeaderFooterClass.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         return collection
     }()
     
@@ -40,8 +41,29 @@ class ExplorerViewController: UIViewController {
            collection.showsHorizontalScrollIndicator = false
            collection.register(CustomCellViewController.self, forCellWithReuseIdentifier: "cell")
            collection.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "trendingCell")
+//           collection.register(MyHeaderFooterClass.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
            return collection
        }()
+    
+    fileprivate let header: UILabel = {
+       let text = UILabel()
+        text.text = "FEATURED"
+        text.textColor = .black
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .left
+        text.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        return text
+    }()
+    
+    fileprivate let header2: UILabel = {
+       let text = UILabel()
+        text.text = "HIGHEST RATED"
+        text.textColor = .black
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.textAlignment = .left
+        text.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        return text
+    }()
     
     fileprivate let topView: UIView = {
         let topView = UIView()
@@ -67,6 +89,8 @@ class ExplorerViewController: UIViewController {
         view.addSubview(botView)
         view.addSubview(collectionView)
         view.addSubview(collectionView2)
+        view.addSubview(header)
+        view.addSubview(header2)
 
         topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -90,6 +114,12 @@ class ExplorerViewController: UIViewController {
         collectionView2.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView2.bottomAnchor.constraint(equalTo: botView.topAnchor).isActive = true
         
+        header.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
+        header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        
+        header2.topAnchor.constraint(equalTo: collectionView2.topAnchor, constant: 10).isActive = true
+        header2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -100,23 +130,34 @@ class ExplorerViewController: UIViewController {
 }
 
 extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2.4, height: collectionView.frame.height/1.3)
     }
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 2
-//    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView2 {
             return 10 //data.count
         }
         return 5
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellViewController
         return cell
     }
+    
 //    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        <#code#>
+//        switch kind {
+//        case UICollectionView.elementKindSectionHeader:
+//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+//
+//            headerView.backgroundColor = UIColor.blue
+//            return headerView
+//        default:
+//
+//        assert(false, "Unexpected element kind")
+//        }
 //    }
+    
 }

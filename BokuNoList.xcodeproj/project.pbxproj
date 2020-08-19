@@ -20,6 +20,7 @@
 		691F01FB24E6DAD600C4517E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01FA24E6DAD600C4517E /* Colors.swift */; };
 		69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */; };
 		69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */; };
+		69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		691F01FA24E6DAD600C4517E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderFooterClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				691F01F324E6C51800C4517E /* TabBarViewController.swift */,
 				69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */,
 				69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */,
+				69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */,
 				691F01BC24E57F5400C4517E /* AppDelegate.swift in Sources */,
 				691F01FB24E6DAD600C4517E /* Colors.swift in Sources */,
+				69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */,
 				691F01BE24E57F5400C4517E /* SceneDelegate.swift in Sources */,
 				691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */,
 				691F01F224E6C4CC00C4517E /* ExplorerViewController.swift in Sources */,
