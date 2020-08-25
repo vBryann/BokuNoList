@@ -13,8 +13,6 @@ class MyHeaderFooterClass: UICollectionReusableView {
        super.init(frame: frame)
        self.backgroundColor = UIColor.purple
 
-       // Customize here
-
     }
 
     required init?(coder aDecoder: NSCoder) {

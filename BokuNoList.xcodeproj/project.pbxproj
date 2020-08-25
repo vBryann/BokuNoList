@@ -18,9 +18,13 @@
 		691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01F324E6C51800C4517E /* TabBarViewController.swift */; };
 		691F01F624E6CB1F00C4517E /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01F524E6CB1F00C4517E /* MyListViewController.swift */; };
 		691F01FB24E6DAD600C4517E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01FA24E6DAD600C4517E /* Colors.swift */; };
+		6929734424F1795E00B0DC8A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929734324F1795E00B0DC8A /* DetailsViewController.swift */; };
+		69405E2324F4029C00777618 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2224F4029C00777618 /* Checklist.swift */; };
+		69405E2624F409E500777618 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2524F409E500777618 /* ViewCode.swift */; };
 		69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */; };
 		69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */; };
 		69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */; };
+		69D5E31324EEA8D6003109D9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5E31224EEA8D6003109D9 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +62,13 @@
 		691F01F324E6C51800C4517E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		691F01F524E6CB1F00C4517E /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		691F01FA24E6DAD600C4517E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		6929734324F1795E00B0DC8A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		69405E2224F4029C00777618 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		69405E2524F409E500777618 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderFooterClass.swift; sourceTree = "<group>"; };
+		69D5E31224EEA8D6003109D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,8 @@
 		691F01BA24E57F5400C4517E /* BokuNoList */ = {
 			isa = PBXGroup;
 			children = (
+				69405E2424F409B100777618 /* Utils */,
+				69D5E31124EEA86B003109D9 /* Network */,
 				691F01F924E6DAB700C4517E /* Resources */,
 				691F01ED24E57FDE00C4517E /* View */,
 				691F01EC24E57FD500C4517E /* Controller */,
@@ -155,6 +165,7 @@
 			children = (
 				691F01F124E6C4CC00C4517E /* ExplorerViewController.swift */,
 				691F01F524E6CB1F00C4517E /* MyListViewController.swift */,
+				6929734324F1795E00B0DC8A /* DetailsViewController.swift */,
 				691F01F324E6C51800C4517E /* TabBarViewController.swift */,
 				69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */,
 				69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */,
@@ -166,6 +177,7 @@
 		691F01ED24E57FDE00C4517E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				69405E2224F4029C00777618 /* Checklist.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +188,22 @@
 				691F01FA24E6DAD600C4517E /* Colors.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		69405E2424F409B100777618 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				69405E2524F409E500777618 /* ViewCode.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		69D5E31124EEA86B003109D9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				69D5E31224EEA8D6003109D9 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,13 +360,17 @@
 			files = (
 				691F01F624E6CB1F00C4517E /* MyListViewController.swift in Sources */,
 				69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */,
+				69D5E31324EEA8D6003109D9 /* NetworkManager.swift in Sources */,
+				6929734424F1795E00B0DC8A /* DetailsViewController.swift in Sources */,
 				69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */,
 				691F01BC24E57F5400C4517E /* AppDelegate.swift in Sources */,
 				691F01FB24E6DAD600C4517E /* Colors.swift in Sources */,
 				69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */,
+				69405E2324F4029C00777618 /* Checklist.swift in Sources */,
 				691F01BE24E57F5400C4517E /* SceneDelegate.swift in Sources */,
 				691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */,
 				691F01F224E6C4CC00C4517E /* ExplorerViewController.swift in Sources */,
+				69405E2624F409E500777618 /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

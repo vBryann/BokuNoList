@@ -29,7 +29,6 @@ class ExplorerViewController: UIViewController {
         collection.showsHorizontalScrollIndicator = false
         collection.register(CustomCellViewController.self, forCellWithReuseIdentifier: "cell")
         collection.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "trendingCell")
-//        collection.register(MyHeaderFooterClass.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         return collection
     }()
     
@@ -41,7 +40,6 @@ class ExplorerViewController: UIViewController {
            collection.showsHorizontalScrollIndicator = false
            collection.register(CustomCellViewController.self, forCellWithReuseIdentifier: "cell")
            collection.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "trendingCell")
-//           collection.register(MyHeaderFooterClass.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
            return collection
        }()
     
@@ -85,6 +83,7 @@ class ExplorerViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchBar
         
+        view.addSubview(UIView())
         view.addSubview(topView)
         view.addSubview(botView)
         view.addSubview(collectionView)
@@ -147,17 +146,9 @@ extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollecti
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        switch kind {
-//        case UICollectionView.elementKindSectionHeader:
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-//
-//            headerView.backgroundColor = UIColor.blue
-//            return headerView
-//        default:
-//
-//        assert(false, "Unexpected element kind")
-//        }
-//    }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let nextVC = DetailsViewController()
+        self.navigationController?.pushViewController(nextVC,animated: true)
+        
+    }
 }

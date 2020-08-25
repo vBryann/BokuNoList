@@ -17,7 +17,7 @@ class CustomCellViewController: UICollectionViewCell {
 //        }
 //    }
     
-    fileprivate let bg: UIImageView = {
+    fileprivate let background: UIImageView = {
         let image = UIImageView()
         image.image = #imageLiteral(resourceName: "BokuNoHero")
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -39,13 +39,13 @@ class CustomCellViewController: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(bg)
+        contentView.addSubview(background)
         contentView.addSubview(title)
         
-        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        background.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
+        background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
     }
     required init?(coder: NSCoder) {
