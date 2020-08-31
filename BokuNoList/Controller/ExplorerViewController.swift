@@ -4,7 +4,7 @@
 //
 //  Created by Vitor Bryan on 14/08/20.
 //  Copyright © 2020 Vitor Bryan. All rights reserved.
-//
+//  swiftlint:disable line_length
 
 import UIKit
 
@@ -82,6 +82,9 @@ class ExplorerViewController: UIViewController {
         title = "Explore"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchBar
+        
+        let apiController = NetworkManager()
+        apiController.test()
         
         view.addSubview(UIView())
         view.addSubview(topView)

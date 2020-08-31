@@ -10,10 +10,10 @@ import UIKit
 
 class CustomCellViewController: UICollectionViewCell {
     
-//    var data  {
+//    var data {
 //        didSet {
 //            guard let data = data else {return}
-//            bg.image
+//            background.image = data.image
 //        }
 //    }
     

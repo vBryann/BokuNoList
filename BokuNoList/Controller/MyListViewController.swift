@@ -58,4 +58,3 @@ class MyListViewController: UIViewController {
         tableview.bottomAnchor.constraint(equalTo: botView.topAnchor).isActive = true
     }
 }
-
