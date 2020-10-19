@@ -17,7 +17,7 @@ class ExplorerViewController: UIViewController {
         searchController.searchBar.isTranslucent = true
         searchController.definesPresentationContext = true
         let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor.actionColor]
-        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes , for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes, for: .normal)
         return searchController
     }()
     
@@ -82,9 +82,6 @@ class ExplorerViewController: UIViewController {
         title = "Explore"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchBar
-        
-        let apiController = NetworkManager()
-        apiController.test()
         
         view.addSubview(UIView())
         view.addSubview(topView)
@@ -151,7 +148,7 @@ extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = DetailsViewController()
-        self.navigationController?.pushViewController(nextVC,animated: true)
+        self.navigationController?.pushViewController(nextVC, animated: true)
         
     }
 }

@@ -42,9 +42,14 @@ class Checklist: UIView {
     
     fileprivate let addButton: UIButton = {
         let button = UIButton()
-        button.adjustsImageWhenHighlighted = true
         button.translatesAutoresizingMaskIntoConstraints = false
-        
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.setTitle("Add to List", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = .actionColor
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -115,6 +120,10 @@ class Checklist: UIView {
         descript.translatesAutoresizingMaskIntoConstraints = false
         return descript
     }()
+    
+    @objc func buttonTapped() {
+        print("OK")
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -152,7 +161,8 @@ extension Checklist: ViewCode {
         checklist.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 10.5)])
         
         NSLayoutConstraint.activate([addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-        addButton.topAnchor.constraint(equalTo: checklist.bottomAnchor, constant: 11)])
+        addButton.topAnchor.constraint(equalTo: checklist.bottomAnchor, constant: 11),
+        addButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3)])
         
         NSLayoutConstraint.activate([ratingTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
         ratingTitle.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 11)])

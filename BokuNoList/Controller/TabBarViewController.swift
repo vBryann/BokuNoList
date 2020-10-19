@@ -19,7 +19,7 @@ class TabBarViewController: UITabBarController {
         let secondVC = UINavigationController(rootViewController: MyListViewController())
         secondVC.tabBarItem = UITabBarItem(title: "My List", image: UIImage(named: "list"), tag: 1)
         
-        let tabList = [firstVC,secondVC]
+        let tabList = [firstVC, secondVC]
         viewControllers = tabList
         setupColor()
     }

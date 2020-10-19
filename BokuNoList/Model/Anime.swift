@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import CoreData
+
+class Anime: NSManagedObject {
+    @NSManaged public var title: String?
+    @NSManaged public var year: NSNumber?
+    @NSManaged public var synopsis: String?
+    @NSManaged public var details: String?
+    
+}

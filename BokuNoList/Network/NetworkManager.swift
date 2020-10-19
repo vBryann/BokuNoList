@@ -19,7 +19,7 @@ enum ApiEndpoint {
     var host: String {
         return "kitsu.io"
     }
-    var path: String{
+    var path: String {
         switch self {
         case .getFeatured:
             return "/api/edge/feature/anime"
@@ -42,28 +42,28 @@ enum ApiEndpoint {
 
 class NetworkManager {
 
-    func getFeaturedItens() {
-        
-        guard let url = urlFromComponents else { fatalError("Deu ruim com a URL")}
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "GET"
-        urlRequest.setValue("application/vnd.api+json", forHTTPHeaderField: "Accept")
-        urlRequest.setValue("application/vnd.api+json", forHTTPHeaderField: "Content-Type")
-        
-        let task = URLSession.shared.dataTask(with: urlRequest) {data, response, error in
-            if let data = data {
-                do {
-                    let response = try JSONDecoder().decode(ApiResponse.self, from: data)
-                    print(response.works)
-                } catch {
-                    print(error)
-                }
-            }
-        }
-        task.resume()
-    }
-    
+//    func getFeaturedItens() {
+//
+//        guard let url = urlFromComponents else { fatalError("Deu ruim com a URL")}
+//
+//        var urlRequest = URLRequest(url: url)
+//        urlRequest.httpMethod = "GET"
+//        urlRequest.setValue("application/vnd.api+json", forHTTPHeaderField: "Accept")
+//        urlRequest.setValue("application/vnd.api+json", forHTTPHeaderField: "Content-Type")
+//
+//        let task = URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+//            if let data = data {
+//                do {
+//                    let response = try JSONDecoder().decode(ApiResponse.self, from: data)
+//                    print(response.works)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        }
+//        task.resume()
+//    }
+//
 //    func getFromEndpoint(endpoint: ApiEndpoint, limit: Int = 10, offset: Int = 0) {
 //        let url = URL(string: "\(endpoint.rawValue)?page[limit]=\(limit)&page[offset]=\(offset)")!
 //        var urlRequest = URLRequest(url: url)
