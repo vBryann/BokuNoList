@@ -10,6 +10,16 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
+    var data: MockCell? {
+        didSet {
+            guard let data = data else {return}
+            title = data.title
+            descriptionView.title.text = data.title
+            descriptionView.detailsDescript.text = data.details
+            descriptionView.synopsisDescript.text = data.synopsis
+        }
+    }
+    
     fileprivate let descriptionView: Checklist = {
         let description = Checklist()
         description.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +40,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Anime Title"
+//        title = "Anime Title"
         navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .actionColor
         view.backgroundColor = .white

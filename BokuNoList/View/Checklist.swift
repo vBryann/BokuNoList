@@ -4,13 +4,13 @@
 //
 //  Created by Vitor Bryan on 24/08/20.
 //  Copyright © 2020 Vitor Bryan. All rights reserved.
-//  swiftlint:disable line_length
 
 import UIKit
+import CoreData
 
 class Checklist: UIView {
     
-    fileprivate let coverPage: UIImageView = {
+     let coverPage: UIImageView = {
         let image = UIImageView()
         image.image = #imageLiteral(resourceName: "cover")
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +18,7 @@ class Checklist: UIView {
         return image
     }()
     
-    fileprivate let checklist: UILabel = {
+     let checklist: UILabel = {
         let text = UILabel()
         text.text = "Checklist"
         text.textColor = .black
@@ -28,7 +28,7 @@ class Checklist: UIView {
         return text
     }()
     
-    fileprivate let descript: UILabel = {
+     let title: UILabel = {
         let descript = UILabel()
         descript.textColor = .gray
         descript.text = ""
@@ -85,12 +85,10 @@ class Checklist: UIView {
         return text
     }()
     
-    fileprivate let synopsisDescript: UILabel = {
+    let synopsisDescript: UILabel = {
         let descript = UILabel()
         descript.textColor = .gray
-        descript.text = """
-        It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family.
-        """
+        descript.text = ""
         descript.numberOfLines = 0
         descript.textAlignment = .left
         descript.adjustsFontSizeToFitWidth = true
@@ -109,7 +107,7 @@ class Checklist: UIView {
         return text
     }()
     
-    fileprivate let detailsDescript: UILabel = {
+     let detailsDescript: UILabel = {
         let descript = UILabel()
         descript.textColor = .gray
         descript.text = ""
@@ -122,7 +120,13 @@ class Checklist: UIView {
     }()
     
     @objc func buttonTapped() {
-        print("OK")
+        if let anime = NSEntityDescription.insertNewObject(forEntityName: "Anime",
+                                                           into: DatabaseController.persistentContainer.viewContext) as? Anime {
+            anime.title = title.text
+            anime.details = detailsDescript.text
+            anime.synopsis = synopsisTitle.text
+            DatabaseController.saveContext()
+        }
     }
 
     override init(frame: CGRect) {
@@ -139,7 +143,7 @@ extension Checklist: ViewCode {
         
         addSubview(checklist)
         addSubview(coverPage)
-        addSubview(descript)
+//        addSubview(descript)
         addSubview(addButton)
         addSubview(ratingTitle)
         addSubview(ratingDescript)

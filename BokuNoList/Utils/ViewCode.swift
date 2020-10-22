@@ -22,3 +22,10 @@ extension ViewCode {
         aditionalConfigurations()
     }
 }
+
+struct MockCell {
+    var title: String
+    var details: String
+    var synopsis: String
+    var image: UIImage
+}

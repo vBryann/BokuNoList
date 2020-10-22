@@ -10,6 +10,11 @@ import UIKit
 
 class ExplorerViewController: UIViewController {
     
+    let data = [
+        MockCell(title: "Demon Slayer", details: "details about demon slayer", synopsis: "Synopsis about demon slayer", image: #imageLiteral(resourceName: "Kimetsu")),
+        MockCell(title: "Bleach", details: "Details about bleach", synopsis: "Synopsis about bleach", image: #imageLiteral(resourceName: "Bleach"))
+    ]
+    
     fileprivate let searchBar: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search"
@@ -136,19 +141,20 @@ extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView2 {
-            return 10 //data.count
+            return 0 //data.count
         }
-        return 5
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellViewController
+        cell.data = self.data[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = DetailsViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
-        
+        nextVC.data = self.data[indexPath.row]
     }
 }

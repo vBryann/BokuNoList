@@ -22,12 +22,14 @@
 		69405E2324F4029C00777618 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2224F4029C00777618 /* Checklist.swift */; };
 		69405E2624F409E500777618 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2524F409E500777618 /* ViewCode.swift */; };
 		69405E2824F537D200777618 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2724F537D200777618 /* ApiResponse.swift */; };
-		69754C94253DC68600B12C32 /* Mylist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69754C92253DC68600B12C32 /* Mylist.xcdatamodeld */; };
-		69754C99253DC6E500B12C32 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69754C98253DC6E500B12C32 /* Anime.swift */; };
+		69754C9E253F12A500B12C32 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69754C9D253F12A500B12C32 /* DatabaseController.swift */; };
 		69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */; };
 		69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */; };
 		69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */; };
 		69D5E31324EEA8D6003109D9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D5E31224EEA8D6003109D9 /* NetworkManager.swift */; };
+		69FC5F38253F283A008DFA5C /* Mylist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69FC5F36253F283A008DFA5C /* Mylist.xcdatamodeld */; };
+		69FC5F3E253F28B4008DFA5C /* Anime+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC5F3C253F28B4008DFA5C /* Anime+CoreDataClass.swift */; };
+		69FC5F3F253F28B4008DFA5C /* Anime+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FC5F3D253F28B4008DFA5C /* Anime+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +71,14 @@
 		69405E2224F4029C00777618 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		69405E2524F409E500777618 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		69405E2724F537D200777618 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
-		69754C93253DC68600B12C32 /* Mylist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mylist.xcdatamodel; sourceTree = "<group>"; };
-		69754C98253DC6E500B12C32 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		69754C9D253F12A500B12C32 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		69920C7424EABB1F0085FD3A /* CustomCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		69920C7624EC0D780085FD3A /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		69920C7824ED55BD0085FD3A /* MyHeaderFooterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderFooterClass.swift; sourceTree = "<group>"; };
 		69D5E31224EEA8D6003109D9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		69FC5F37253F283A008DFA5C /* Mylist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mylist.xcdatamodel; sourceTree = "<group>"; };
+		69FC5F3C253F28B4008DFA5C /* Anime+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataClass.swift"; sourceTree = "<group>"; };
+		69FC5F3D253F28B4008DFA5C /* Anime+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anime+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				691F01C624E57F5800C4517E /* LaunchScreen.storyboard */,
 				691F01C924E57F5800C4517E /* Info.plist */,
 				691F01EF24E6C07200C4517E /* .swiftlint.yml */,
+				69FC5F36253F283A008DFA5C /* Mylist.xcdatamodeld */,
 			);
 			path = BokuNoList;
 			sourceTree = "<group>";
@@ -162,9 +167,10 @@
 		691F01EB24E57FCD00C4517E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				69FC5F3C253F28B4008DFA5C /* Anime+CoreDataClass.swift */,
+				69FC5F3D253F28B4008DFA5C /* Anime+CoreDataProperties.swift */,
 				69405E2724F537D200777618 /* ApiResponse.swift */,
-				69754C92253DC68600B12C32 /* Mylist.xcdatamodeld */,
-				69754C98253DC6E500B12C32 /* Anime.swift */,
+				69754C9D253F12A500B12C32 /* DatabaseController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,22 +373,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69754C99253DC6E500B12C32 /* Anime.swift in Sources */,
-				69754C94253DC68600B12C32 /* Mylist.xcdatamodeld in Sources */,
 				691F01F624E6CB1F00C4517E /* MyListViewController.swift in Sources */,
 				69920C7524EABB1F0085FD3A /* CustomCellViewController.swift in Sources */,
 				69D5E31324EEA8D6003109D9 /* NetworkManager.swift in Sources */,
 				69405E2824F537D200777618 /* ApiResponse.swift in Sources */,
 				6929734424F1795E00B0DC8A /* DetailsViewController.swift in Sources */,
+				69FC5F3F253F28B4008DFA5C /* Anime+CoreDataProperties.swift in Sources */,
 				69920C7724EC0D780085FD3A /* TrendingCollectionViewCell.swift in Sources */,
 				691F01BC24E57F5400C4517E /* AppDelegate.swift in Sources */,
+				69FC5F3E253F28B4008DFA5C /* Anime+CoreDataClass.swift in Sources */,
 				691F01FB24E6DAD600C4517E /* Colors.swift in Sources */,
 				69920C7924ED55BD0085FD3A /* MyHeaderFooterClass.swift in Sources */,
 				69405E2324F4029C00777618 /* Checklist.swift in Sources */,
 				691F01BE24E57F5400C4517E /* SceneDelegate.swift in Sources */,
 				691F01F424E6C51800C4517E /* TabBarViewController.swift in Sources */,
+				69754C9E253F12A500B12C32 /* DatabaseController.swift in Sources */,
 				691F01F224E6C4CC00C4517E /* ExplorerViewController.swift in Sources */,
 				69405E2624F409E500777618 /* ViewCode.swift in Sources */,
+				69FC5F38253F283A008DFA5C /* Mylist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,12 +713,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		69754C92253DC68600B12C32 /* Mylist.xcdatamodeld */ = {
+		69FC5F36253F283A008DFA5C /* Mylist.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				69754C93253DC68600B12C32 /* Mylist.xcdatamodel */,
+				69FC5F37253F283A008DFA5C /* Mylist.xcdatamodel */,
 			);
-			currentVersion = 69754C93253DC68600B12C32 /* Mylist.xcdatamodel */;
+			currentVersion = 69FC5F37253F283A008DFA5C /* Mylist.xcdatamodel */;
 			path = Mylist.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

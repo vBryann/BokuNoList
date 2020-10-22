@@ -10,12 +10,13 @@ import UIKit
 
 class CustomCellViewController: UICollectionViewCell {
     
-//    var data {
-//        didSet {
-//            guard let data = data else {return}
-//            background.image = data.image
-//        }
-//    }
+    var data: MockCell? {
+        didSet {
+            guard let data = data else {return}
+            background.image = data.image
+            title.text = data.title
+        }
+    }
     
     fileprivate let background: UIImageView = {
         let image = UIImageView()
@@ -40,7 +41,7 @@ class CustomCellViewController: UICollectionViewCell {
         super.init(frame: frame)
         
         contentView.addSubview(background)
-        contentView.addSubview(title)
+//        contentView.addSubview(title)
         
         background.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
