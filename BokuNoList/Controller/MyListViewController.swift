@@ -97,7 +97,8 @@ extension MyListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let delete = UIContextualAction(style: .destructive, title: "Delete") {(action, view, completionHandler) in
+        let delete = UIContextualAction(style: .destructive,
+                                        title: "Delete") {(action, view, completionHandler) in
             let animeToBeDeleted = self.animes[indexPath.row]
             self.animes.remove(at: indexPath.row)
             self.tableview.deleteRows(at: [indexPath], with: .fade)
