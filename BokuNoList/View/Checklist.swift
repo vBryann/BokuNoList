@@ -63,7 +63,7 @@ class Checklist: UIView {
         return text
     }()
     
-    fileprivate let ratingDescript: UILabel = {
+    let ratingDescript: UILabel = {
         let descript = UILabel()
         descript.textColor = .gray
         descript.text = ""

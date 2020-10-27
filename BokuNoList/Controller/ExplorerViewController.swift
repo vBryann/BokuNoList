@@ -10,10 +10,7 @@ import UIKit
 
 class ExplorerViewController: UIViewController {
     
-    let data = [
-        MockCell(title: "Demon Slayer", details: "details about demon slayer", synopsis: "Synopsis about demon slayer", image: #imageLiteral(resourceName: "Kimetsu")),
-        MockCell(title: "Bleach", details: "Details about bleach", synopsis: "Synopsis about bleach", image: #imageLiteral(resourceName: "Bleach"))
-    ]
+    var arrayAnimes = [Animes]()
     
     fileprivate let searchBar: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -82,6 +79,8 @@ class ExplorerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAnime()
+        
         view.backgroundColor = .white
         
         title = "Explore"
@@ -130,6 +129,18 @@ class ExplorerViewController: UIViewController {
         collectionView2.delegate = self
         collectionView2.dataSource = self
     }
+    
+    func getAnime() {
+        ModelCloudKit.currentModel.fetchAnimes { response in
+            switch response {
+            case .success(let data):
+                self.arrayAnimes = data
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 
 }
 
@@ -143,18 +154,18 @@ extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollecti
         if collectionView == collectionView2 {
             return 0 //data.count
         }
-        return data.count
+        return arrayAnimes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellViewController
-        cell.data = self.data[indexPath.row]
+        cell.data = arrayAnimes[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = DetailsViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
-        nextVC.data = self.data[indexPath.row]
+        nextVC.data = arrayAnimes[indexPath.row]
     }
 }

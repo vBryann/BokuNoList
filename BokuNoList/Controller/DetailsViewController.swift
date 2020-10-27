@@ -10,13 +10,15 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var data: MockCell? {
+    var data: Animes? {
         didSet {
             guard let data = data else {return}
             title = data.title
             descriptionView.title.text = data.title
             descriptionView.detailsDescript.text = data.details
             descriptionView.synopsisDescript.text = data.synopsis
+            descriptionView.ratingDescript.text = data.rating
+            descriptionView.coverPage.image = data.detailImage
         }
     }
     

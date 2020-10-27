@@ -10,10 +10,10 @@ import UIKit
 
 class CustomCellViewController: UICollectionViewCell {
     
-    var data: MockCell? {
+    var data: Animes? {
         didSet {
             guard let data = data else {return}
-            background.image = data.image
+            background.image = data.coverImage
             title.text = data.title
         }
     }
