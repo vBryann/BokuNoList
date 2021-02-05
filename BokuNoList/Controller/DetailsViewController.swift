@@ -19,6 +19,10 @@ class DetailsViewController: UIViewController {
             descriptionView.synopsisDescript.text = data.synopsis
             descriptionView.ratingDescript.text = data.rating
             descriptionView.coverPage.image = data.detailImage
+//            if data.airing.text != "" || data.airing.text != " " {
+//                descriptionView.airing.text = data.airing
+//                descriptionView.icon.image = #imageLiteral(resourceName: "time")
+//            }
         }
     }
     
@@ -40,10 +44,18 @@ class DetailsViewController: UIViewController {
         return botView
     }()
     
+    @objc func notifications() {
+        print("deu bom")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        title = "Anime Title"
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "notification"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(notifications))
         self.navigationController?.navigationBar.tintColor = .actionColor
         view.backgroundColor = .white
         

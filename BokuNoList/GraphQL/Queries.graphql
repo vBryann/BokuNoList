@@ -1,0 +1,8 @@
+query WHATEVER {
+  Media (type: ANIME) {
+    id
+    title {
+        romanji
+    }
+  }
+}

@@ -12,7 +12,7 @@ class Checklist: UIView {
     
      let coverPage: UIImageView = {
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "cover")
+//        image.image = #imageLiteral(resourceName: "cover")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         return image
@@ -119,9 +119,29 @@ class Checklist: UIView {
         return descript
     }()
     
+    let airing: UILabel = {
+        let title = UILabel()
+        title.textColor = .actionColor
+        title.text = ""
+        title.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
+    }()
+        
+    let icon: UIImageView = {
+        let image = UIImageView()
+        
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+        
+    }()
+    
     @objc func buttonTapped() {
         if let anime = NSEntityDescription.insertNewObject(forEntityName: "Anime",
-                                                           into: DatabaseController.persistentContainer.viewContext) as? Anime {
+                                                           into:
+                                                            DatabaseController.persistentContainer.viewContext) as?
+                                                            Anime {
             anime.title = title.text
             anime.details = detailsDescript.text
             anime.synopsis = synopsisTitle.text
@@ -151,6 +171,8 @@ extension Checklist: ViewCode {
         addSubview(synopsisDescript)
         addSubview(detailsTitle)
         addSubview(detailsDescript)
+        addSubview(airing)
+        addSubview(icon)
         
     }
     
@@ -186,6 +208,12 @@ extension Checklist: ViewCode {
         
         NSLayoutConstraint.activate([detailsDescript.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
         detailsDescript.topAnchor.constraint(equalTo: detailsTitle.bottomAnchor, constant: 4)])
+        
+        NSLayoutConstraint.activate([airing.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+                                     airing.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])
+        
+        NSLayoutConstraint.activate([icon.trailingAnchor.constraint(equalTo: airing.leadingAnchor, constant: -5),
+                                     icon.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])
     }
     func aditionalConfigurations() {
         backgroundColor = .white

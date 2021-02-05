@@ -76,6 +76,10 @@ class ExplorerViewController: UIViewController {
         botView.translatesAutoresizingMaskIntoConstraints = false
         return botView
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getAnime()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
