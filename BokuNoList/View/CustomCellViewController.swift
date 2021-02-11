@@ -10,11 +10,16 @@ import UIKit
 
 class CustomCellViewController: UICollectionViewCell {
     
-    var data: Animes? {
+    var data: Media? {
         didSet {
             guard let data = data else {return}
-            background.image = data.coverImage
-            title.text = data.title
+            let url = URL(string: data.coverImage?.large ?? "")
+            if let data = try? Data(contentsOf: url!) {
+                let bannerImage: UIImage = UIImage(data: data)!
+                background.image = bannerImage
+            }
+
+            title.text = data.title?.userPreferred
         }
     }
     

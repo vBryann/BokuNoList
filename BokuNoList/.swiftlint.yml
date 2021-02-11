@@ -1,3 +1,5 @@
+excluded:
+  - API.swift
 disabled_rules: # rule identifiers to exclude from running
   # - colon
 #  - comma
@@ -5,6 +7,8 @@ disabled_rules: # rule identifiers to exclude from running
   # - variable_name
   - force_cast
   - identifier_name
+#  - file_lenght
+  - switch_case_alignment
 #  - large_tuple
 #  - notification_center_detachment
 #  - nesting
@@ -14,5 +18,6 @@ disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace # <---------
 opt_in_rules: # some rules are only opt-in
   - empty_count
-  
+excluded:
+    - GraphQL/API.swift
 

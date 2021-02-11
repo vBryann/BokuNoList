@@ -10,19 +10,44 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var data: Animes? {
+    var data: Media? {
         didSet {
-            guard let data = data else {return}
-            title = data.title
-            descriptionView.title.text = data.title
-            descriptionView.detailsDescript.text = data.details
-            descriptionView.synopsisDescript.text = data.synopsis
-            descriptionView.ratingDescript.text = data.rating
-            descriptionView.coverPage.image = data.detailImage
-//            if data.airing.text != "" || data.airing.text != " " {
-//                descriptionView.airing.text = data.airing
-//                descriptionView.icon.image = #imageLiteral(resourceName: "time")
-//            }
+            guard var data = data else {return}
+            title = data.title?.userPreferred
+            descriptionView.title.text = data.title?.userPreferred
+//            descriptionView.detailsDescript.text = data.details
+            
+            let html = "<br>"
+            let html2 = "</i>"
+            let html3 = "<i>"
+            let html4 = "<i/>"
+            
+            if let description = data.description?.range(of: html) {
+                data.description?.removeSubrange(description)
+            }
+            if let description = data.description?.range(of: html2) {
+                data.description?.removeSubrange(description)
+            }
+            if let description = data.description?.range(of: html3) {
+                data.description?.removeSubrange(description)
+            }
+            if let description = data.description?.range(of: html4) {
+                data.description?.removeSubrange(description)
+            }
+            
+            descriptionView.synopsisDescript.text = data.description
+            descriptionView.ratingDescript.text = "\(data.averageScore ?? 0)%"
+            
+            let url = URL(string: data.bannerImage ?? "")
+            if let data = try? Data(contentsOf: url!) {
+                let bannerImage: UIImage = UIImage(data: data)!
+                descriptionView.coverPage.image = bannerImage
+            }
+            
+            if data.nextAiringEpisode?.timeUntilAiring != nil {
+                descriptionView.airing.text = "\(data.nextAiringEpisode!.timeUntilAiring/86400) Days"
+                descriptionView.icon.image = #imageLiteral(resourceName: "time")
+            }
         }
     }
     
@@ -80,3 +105,4 @@ class DetailsViewController: UIViewController {
         
     }
 }
+

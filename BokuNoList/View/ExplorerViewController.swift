@@ -12,6 +12,10 @@ class ExplorerViewController: UIViewController {
     
     var arrayAnimes = [Animes]()
     
+    var arrayTrending: [Media] = []
+    
+    private var explorerViewModel = ExplorerViewModel()
+    
     fileprivate let searchBar: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Search"
@@ -76,14 +80,22 @@ class ExplorerViewController: UIViewController {
         botView.translatesAutoresizingMaskIntoConstraints = false
         return botView
     }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        getAnime()
+//        explorerViewModel.getAnime()
+//        explorerViewModel.dataTrending.bind { _ in
+//            self.collectionView.reloadData()
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAnime()
+        
+        explorerViewModel.getAnime()
+        explorerViewModel.dataTrending.bind { _ in
+            self.collectionView.reloadData()
+        }
         
         view.backgroundColor = .white
         
@@ -97,7 +109,7 @@ class ExplorerViewController: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(collectionView2)
         view.addSubview(header)
-        view.addSubview(header2)
+//        view.addSubview(header2)
 
         topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -124,26 +136,14 @@ class ExplorerViewController: UIViewController {
         header.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 10).isActive = true
         header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         
-        header2.topAnchor.constraint(equalTo: collectionView2.topAnchor, constant: 10).isActive = true
-        header2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+//        header2.topAnchor.constraint(equalTo: collectionView2.topAnchor, constant: 10).isActive = true
+//        header2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView2.delegate = self
         collectionView2.dataSource = self
-    }
-    
-    func getAnime() {
-        ModelCloudKit.currentModel.fetchAnimes { response in
-            switch response {
-            case .success(let data):
-                self.arrayAnimes = data
-                self.collectionView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 
 }
@@ -158,18 +158,18 @@ extension ExplorerViewController: UICollectionViewDelegateFlowLayout, UICollecti
         if collectionView == collectionView2 {
             return 0 //data.count
         }
-        return arrayAnimes.count
+        return explorerViewModel.dataTrending.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCellViewController
-        cell.data = arrayAnimes[indexPath.row]
+        cell.data = explorerViewModel.dataTrending.value[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let nextVC = DetailsViewController()
         self.navigationController?.pushViewController(nextVC, animated: true)
-        nextVC.data = arrayAnimes[indexPath.row]
+        nextVC.data = explorerViewModel.dataTrending.value[indexPath.row]
     }
 }

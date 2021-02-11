@@ -14,7 +14,8 @@ class Checklist: UIView {
         let image = UIImageView()
 //        image.image = #imageLiteral(resourceName: "cover")
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleToFill
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
         return image
     }()
     
@@ -64,9 +65,10 @@ class Checklist: UIView {
     }()
     
     let ratingDescript: UILabel = {
+        var values = 1
         let descript = UILabel()
         descript.textColor = .gray
-        descript.text = ""
+        descript.text = "\(values)%"
         descript.numberOfLines = 0
         descript.textAlignment = .left
         descript.adjustsFontSizeToFitWidth = true
@@ -179,8 +181,8 @@ extension Checklist: ViewCode {
     func setUpLayoutConstraints() {
         
         NSLayoutConstraint.activate([coverPage.topAnchor.constraint(equalTo: topAnchor),
-        coverPage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -15),
-        coverPage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 15),
+        coverPage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+        coverPage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
         coverPage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.28)])
         
         NSLayoutConstraint.activate([checklist.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

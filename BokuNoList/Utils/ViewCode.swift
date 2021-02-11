@@ -29,3 +29,4 @@ struct MockCell {
     var synopsis: String
     var image: UIImage
 }
+
