@@ -42,7 +42,7 @@ class Checklist: UIView {
     }()
     
     fileprivate let addButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -51,6 +51,7 @@ class Checklist: UIView {
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .actionColor
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
         return button
     }()
     
@@ -171,8 +172,8 @@ extension Checklist: ViewCode {
         addSubview(ratingDescript)
         addSubview(synopsisTitle)
         addSubview(synopsisDescript)
-        addSubview(detailsTitle)
-        addSubview(detailsDescript)
+//        addSubview(detailsTitle)
+//        addSubview(detailsDescript)
         addSubview(airing)
         addSubview(icon)
         
@@ -205,11 +206,11 @@ extension Checklist: ViewCode {
         synopsisDescript.topAnchor.constraint(equalTo: synopsisTitle.bottomAnchor, constant: 4),
         synopsisDescript.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)])
         
-        NSLayoutConstraint.activate([detailsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-        detailsTitle.topAnchor.constraint(equalTo: synopsisDescript.bottomAnchor, constant: 11)])
-        
-        NSLayoutConstraint.activate([detailsDescript.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-        detailsDescript.topAnchor.constraint(equalTo: detailsTitle.bottomAnchor, constant: 4)])
+//        NSLayoutConstraint.activate([detailsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//        detailsTitle.topAnchor.constraint(equalTo: synopsisDescript.bottomAnchor, constant: 11)])
+//        
+//        NSLayoutConstraint.activate([detailsDescript.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+//        detailsDescript.topAnchor.constraint(equalTo: detailsTitle.bottomAnchor, constant: 4)])
         
         NSLayoutConstraint.activate([airing.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
                                      airing.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])

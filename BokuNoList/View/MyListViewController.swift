@@ -70,7 +70,8 @@ class MyListViewController: UIViewController {
             }
     func reloadAnimeData() {
         do {
-            if let animes = try DatabaseController.persistentContainer.viewContext.fetch(Anime.fetchRequest()) as? [Anime] {
+            if let animes = try
+                DatabaseController.persistentContainer.viewContext.fetch(Anime.fetchRequest()) as? [Anime] {
                 self.animes = animes
             }
         } catch {

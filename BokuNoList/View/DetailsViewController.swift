@@ -22,16 +22,17 @@ class DetailsViewController: UIViewController {
             let html3 = "<i>"
             let html4 = "<i/>"
             
-            if let description = data.description?.range(of: html) {
+            while let description = data.description?.range(of: html) {
+                data.description?.removeSubrange(description)
+                descriptionView.synopsisDescript.text = data.description
+            }
+            while let description = data.description?.range(of: html2) {
                 data.description?.removeSubrange(description)
             }
-            if let description = data.description?.range(of: html2) {
+            while let description = data.description?.range(of: html3) {
                 data.description?.removeSubrange(description)
             }
-            if let description = data.description?.range(of: html3) {
-                data.description?.removeSubrange(description)
-            }
-            if let description = data.description?.range(of: html4) {
+            while let description = data.description?.range(of: html4) {
                 data.description?.removeSubrange(description)
             }
             
@@ -45,7 +46,7 @@ class DetailsViewController: UIViewController {
             }
             
             if data.nextAiringEpisode?.timeUntilAiring != nil {
-                descriptionView.airing.text = "\(data.nextAiringEpisode!.timeUntilAiring/86400) Days"
+                descriptionView.airing.text = "\(data.nextAiringEpisode!.timeUntilAiring/86400) Days "
                 descriptionView.icon.image = #imageLiteral(resourceName: "time")
             }
         }
