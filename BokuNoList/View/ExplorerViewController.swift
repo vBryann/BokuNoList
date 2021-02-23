@@ -83,6 +83,7 @@ class ExplorerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
 //        explorerViewModel.getAnime()
 //        explorerViewModel.dataTrending.bind { _ in
 //            self.collectionView.reloadData()

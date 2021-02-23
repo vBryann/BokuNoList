@@ -14,18 +14,21 @@ class CustomCellViewController: UICollectionViewCell {
         didSet {
             guard let data = data else {return}
             let url = URL(string: data.coverImage?.large ?? "")
-            if let data = try? Data(contentsOf: url!) {
-                let bannerImage: UIImage = UIImage(data: data)!
-                background.image = bannerImage
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url!) {
+                    if let bannerImage: UIImage = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.background.image = bannerImage
+                        }
+                    }
+                }
             }
-
             title.text = data.title?.userPreferred
         }
     }
     
     fileprivate let background: UIImageView = {
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "BokuNoHero")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true

@@ -39,8 +39,8 @@ class DetailsViewController: UIViewController {
             descriptionView.synopsisDescript.text = data.description
             descriptionView.ratingDescript.text = "\(data.averageScore ?? 0)%"
             
-            let url = URL(string: data.bannerImage ?? "")
-            if let data = try? Data(contentsOf: url!) {
+            guard let url = URL(string: data.bannerImage ?? "") else { return descriptionView.coverPage.image = #imageLiteral(resourceName: "Image") }
+            if let data = try? Data(contentsOf: url) {
                 let bannerImage: UIImage = UIImage(data: data)!
                 descriptionView.coverPage.image = bannerImage
             }
@@ -56,6 +56,14 @@ class DetailsViewController: UIViewController {
         let description = Checklist()
         description.translatesAutoresizingMaskIntoConstraints = false
         return description
+    }()
+    
+    fileprivate let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.autoresizingMask = .flexibleHeight
+        scroll.bounces = true
+        return scroll
     }()
     
     fileprivate let topView: UIView = {
@@ -85,25 +93,36 @@ class DetailsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .actionColor
         view.backgroundColor = .white
         
-        view.addSubview(topView)
-        view.addSubview(botView)
-        view.addSubview(descriptionView)
+//        view.addSubview(topView)
+//        view.addSubview(botView)
+        view.addSubview(scrollView)
         
-        topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//        scrollView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5).isActive = true
+        
+        scrollView.addSubview(descriptionView)
+        scrollView.addSubview(topView)
+        scrollView.addSubview(botView)
+        
+        topView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         topView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.098).isActive = true
         
-        botView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        botView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         botView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         botView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         botView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07).isActive = true
         
-        descriptionView.topAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
-        descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        descriptionView.bottomAnchor.constraint(equalTo: botView.topAnchor).isActive = true
+        descriptionView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        descriptionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        descriptionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        descriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        descriptionView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        descriptionView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.9).isActive = true
         
     }
 }
-

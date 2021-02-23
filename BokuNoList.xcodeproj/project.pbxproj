@@ -26,6 +26,7 @@
 		691F01FB24E6DAD600C4517E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691F01FA24E6DAD600C4517E /* Colors.swift */; };
 		692798FB25D182DB00BECDC9 /* ExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692798FA25D182DB00BECDC9 /* ExplorerViewModel.swift */; };
 		692798FF25D2D79300BECDC9 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692798FE25D2D79300BECDC9 /* Observable.swift */; };
+		6927991925D6C06E00BECDC9 /* ExploreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927991825D6C06E00BECDC9 /* ExploreUITests.swift */; };
 		6929734424F1795E00B0DC8A /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6929734324F1795E00B0DC8A /* DetailsViewController.swift */; };
 		69405E2324F4029C00777618 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2224F4029C00777618 /* Checklist.swift */; };
 		69405E2624F409E500777618 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69405E2524F409E500777618 /* ViewCode.swift */; };
@@ -97,6 +98,7 @@
 		691F01FA24E6DAD600C4517E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		692798FA25D182DB00BECDC9 /* ExplorerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewModel.swift; sourceTree = "<group>"; };
 		692798FE25D2D79300BECDC9 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		6927991825D6C06E00BECDC9 /* ExploreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreUITests.swift; sourceTree = "<group>"; };
 		6929734324F1795E00B0DC8A /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		69405E2224F4029C00777618 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		69405E2524F409E500777618 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				691F01DD24E57F5800C4517E /* BokuNoListUITests.swift */,
 				691F01DF24E57F5800C4517E /* Info.plist */,
+				6927991825D6C06E00BECDC9 /* ExploreUITests.swift */,
 			);
 			path = BokuNoListUITests;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				691F01DE24E57F5800C4517E /* BokuNoListUITests.swift in Sources */,
+				6927991925D6C06E00BECDC9 /* ExploreUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +668,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BokuNoList/BokuNoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = BokuNoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,7 +689,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BokuNoList/BokuNoList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GHRBLV3RV2;
 				INFOPLIST_FILE = BokuNoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
