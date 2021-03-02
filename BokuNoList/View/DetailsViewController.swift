@@ -48,6 +48,7 @@ class DetailsViewController: UIViewController {
             if data.nextAiringEpisode?.timeUntilAiring != nil {
                 descriptionView.airing.text = "\(data.nextAiringEpisode!.timeUntilAiring/86400) Days "
                 descriptionView.icon.image = #imageLiteral(resourceName: "time")
+                descriptionView.episode.text = "Epi \(data.nextAiringEpisode!.episode) in"
             }
         }
     }
@@ -120,9 +121,10 @@ class DetailsViewController: UIViewController {
         descriptionView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         descriptionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         descriptionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        descriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+//        descriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         descriptionView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        descriptionView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.9).isActive = true
+        descriptionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8).isActive = true
+        descriptionView.synopsisDescript.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
         
     }
 }

@@ -140,6 +140,15 @@ class Checklist: UIView {
         
     }()
     
+    let episode: UILabel = {
+        let title = UILabel()
+        title.textColor = .actionColor
+        title.text = ""
+        title.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
+    }()
+    
     @objc func buttonTapped() {
         if let anime = NSEntityDescription.insertNewObject(forEntityName: "Anime",
                                                            into:
@@ -176,6 +185,7 @@ extension Checklist: ViewCode {
 //        addSubview(detailsDescript)
         addSubview(airing)
         addSubview(icon)
+        addSubview(episode)
         
     }
     
@@ -215,7 +225,10 @@ extension Checklist: ViewCode {
         NSLayoutConstraint.activate([airing.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
                                      airing.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])
         
-        NSLayoutConstraint.activate([icon.trailingAnchor.constraint(equalTo: airing.leadingAnchor, constant: -5),
+        NSLayoutConstraint.activate([episode.trailingAnchor.constraint(equalTo: airing.leadingAnchor, constant: -3),
+                                     episode.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])
+        
+        NSLayoutConstraint.activate([icon.trailingAnchor.constraint(equalTo: episode.leadingAnchor, constant: -5),
                                      icon.topAnchor.constraint(equalTo: coverPage.bottomAnchor, constant: 16)])
     }
     func aditionalConfigurations() {
