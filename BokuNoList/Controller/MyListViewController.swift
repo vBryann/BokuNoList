@@ -15,7 +15,6 @@ class MyListViewController: UIViewController {
     fileprivate let tableview: UITableView = {
         let tableview = UITableView()
         tableview.backgroundColor = .white
-//        tableview.separatorStyle = .none
         tableview.layer.cornerRadius = 10
         tableview.bounces = false
         tableview.translatesAutoresizingMaskIntoConstraints = false
